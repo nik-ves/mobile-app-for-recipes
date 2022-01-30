@@ -12,10 +12,10 @@ const AppTabs = (props) => {
   return (
     <Tabs.Navigator
       tabBarOptions={{
-        showLabel: "false",
         style: {
           backgroundColor: "#0b343a",
         },
+        showLabel: "true",
       }}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ color, size }) => {
@@ -34,11 +34,6 @@ const AppTabs = (props) => {
       <Tabs.Screen name="Meals" component={MealsStack} />
       <Tabs.Screen name="Profile" component={ProfileStack} />
       <Tabs.Screen name="Favorites" component={FavoritesStack} />
-      <Tabs.Screen
-        name="Cart"
-        component={FavoritesStack}
-        options={{ tabBarBadge: 1 }}
-      />
     </Tabs.Navigator>
   );
 };

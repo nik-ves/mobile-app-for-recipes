@@ -11,12 +11,7 @@ export const AuthContext = React.createContext({
 });
 
 const AuthContextProvider = (props) => {
-  const [currentUser, setCurrentUser] = useState({
-    firstName: "Nikola",
-    lastName: "Veselinovic",
-    email: "nikola@test.com",
-    password: "nikola123",
-  });
+  const [currentUser, setCurrentUser] = useState(null);
   const [usersList, setUsersList] = useState([
     {
       firstName: "Nikola",

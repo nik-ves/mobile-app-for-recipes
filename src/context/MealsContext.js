@@ -1,51 +1,5 @@
 import React, { useState } from "react";
 
-const DUMMY_ARRAY = [
-  {
-    image_url:
-      "http://forkify-api.herokuapp.com/images/best_pizza_dough_recipe1b20.jpg",
-    publisher: "101 Cookbooks",
-    publisher_url: "http://www.101cookbooks.com",
-    recipe_id: "47746",
-    social_rank: 100,
-    source_url: "http://www.101cookbooks.com/archives/001199.html",
-    title: "Best Pizza Dough Ever",
-  },
-  {
-    image_url:
-      "http://forkify-api.herokuapp.com/images/nokneadpizzadoughlahey6461467.jpg",
-    publisher: "Bon Appetit",
-    publisher_url: "http://www.bonappetit.com",
-    recipe_id: "49346",
-    social_rank: 99.99999999743466,
-    source_url:
-      "http://www.bonappetit.com/recipes/2012/03/no-knead-pizza-dough",
-    title: "No-Knead Pizza Dough",
-  },
-  {
-    image_url:
-      "http://forkify-api.herokuapp.com/images/nokneadpizzadoughlahey6461467.jpg",
-    publisher: "Bon Appetit",
-    publisher_url: "http://www.bonappetit.com",
-    recipe_id: "49346",
-    social_rank: 99.99999999743466,
-    source_url:
-      "http://www.bonappetit.com/recipes/2012/03/no-knead-pizza-dough",
-    title: "No-Knead Pizza Dough",
-  },
-  {
-    image_url:
-      "http://forkify-api.herokuapp.com/images/nokneadpizzadoughlahey6461467.jpg",
-    publisher: "Bon Appetit",
-    publisher_url: "http://www.bonappetit.com",
-    recipe_id: "49346",
-    social_rank: 99.99999999743466,
-    source_url:
-      "http://www.bonappetit.com/recipes/2012/03/no-knead-pizza-dough",
-    title: "No-Knead Pizza Dough",
-  },
-];
-
 export const MealsContext = React.createContext({
   meals: [],
   currentMeal: {},
@@ -63,7 +17,7 @@ const MealsContextProvider = (props) => {
   const fetchMeals = () => {
     let urls = [
       "https://forkify-api.herokuapp.com/api/search?q=pizza",
-      // "https://forkify-api.herokuapp.com/api/search?q=pasta",
+      "https://forkify-api.herokuapp.com/api/search?q=pasta",
     ];
     Promise.all(urls.map((url) => fetch(url).then((resp) => resp.json()))).then(
       (data) => {
