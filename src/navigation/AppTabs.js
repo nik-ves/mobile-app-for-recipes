@@ -4,7 +4,7 @@ import { Ionicons, AntDesign } from "@expo/vector-icons";
 // EKRANI
 import ProfileStack from "./ProfileStack";
 import MealsStack from "./MealsStack";
-import FavoriteMeals from "../components/favorite/FavoriteMeals";
+import FavoritesStack from "./FavoritesStack";
 
 const Tabs = createBottomTabNavigator();
 
@@ -33,10 +33,10 @@ const AppTabs = (props) => {
     >
       <Tabs.Screen name="Meals" component={MealsStack} />
       <Tabs.Screen name="Profile" component={ProfileStack} />
-      <Tabs.Screen name="Favorites" component={FavoriteMeals} />
+      <Tabs.Screen name="Favorites" component={FavoritesStack} />
       <Tabs.Screen
         name="Cart"
-        component={FavoriteMeals}
+        component={FavoritesStack}
         options={{ tabBarBadge: 1 }}
       />
     </Tabs.Navigator>

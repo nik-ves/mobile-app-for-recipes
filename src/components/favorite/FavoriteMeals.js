@@ -6,10 +6,18 @@ import MealCard from "../meals/MealCard";
 const FavoriteMeals = (props) => {
   const { favMeals } = useContext(MealsContext);
 
+  if (favMeals.length === 0) {
+    return (
+      <View style={styles.fallbackContainer}>
+        <Text style={styles.fallbackMessage}>
+          No favorite meals, maybe add some!
+        </Text>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.screen}>
-      <Text>This is favorites screen</Text>
-
       <FlatList
         style={styles.list}
         keyExtractor={(item) => item.recipe_id}
@@ -36,10 +44,24 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ccc",
+    backgroundColor: "#166974",
+    padding: 20,
   },
   list: {
     height: 200,
+    width: "100%",
+  },
+  fallbackContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#166974",
+  },
+  fallbackMessage: {
+    fontSize: 18,
+    fontFamily: "poppins-regular",
+    textAlign: "center",
+    color: "white",
   },
 });
 
