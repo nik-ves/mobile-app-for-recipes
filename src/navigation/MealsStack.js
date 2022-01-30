@@ -48,8 +48,8 @@ const MealsStack = (props) => {
               (meal) => meal.title === route.params.name
             );
 
-            const isFav = favMeals.find(
-              (meal) => meal.title === selectedMeal.title
+            const isFav = favMeals.some(
+              (meal) => meal.recipe_id === selectedMeal.recipe_id
             );
 
             return (
@@ -57,8 +57,9 @@ const MealsStack = (props) => {
                 <Item
                   title="star-outline"
                   iconName={isFav ? "star" : "star-outline"}
+                  // iconName="star"
                   onPress={() => {
-                    addToFavorites(selectedMeal);
+                    addToFavorites(selectedMeal.recipe_id);
                   }}
                 />
               </HeaderButtons>
