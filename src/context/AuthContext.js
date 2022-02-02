@@ -28,6 +28,18 @@ const AuthContextProvider = (props) => {
     setUsersList((prevState) => [...prevState, user]);
   };
 
+  const editUserHandler = (newFirstName, newLastName, newEmail) => {
+    const editedInfo = {
+      firstName: newFirstName,
+      lastName: newLastName,
+      email: newEmail,
+      password: currentUser.password,
+    };
+    setCurrentUser(editedInfo);
+
+    AsyncStorage.setItem("user", JSON.stringify(editedInfo));
+  };
+
   const loginUserHandler = (email, password) => {
     let user = usersList.find((user) => {
       return email === user.email && password === user.password;
@@ -44,7 +56,7 @@ const AuthContextProvider = (props) => {
 
   const providerValue = {
     currentUser,
-    editCurrentUser: setCurrentUser,
+    editCurrentUser: editUserHandler,
     setCurrentUser,
     isLoggedIn,
     createUser: createUserHandler,

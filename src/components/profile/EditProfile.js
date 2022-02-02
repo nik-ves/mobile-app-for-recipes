@@ -17,12 +17,7 @@ const EditProfile = (props) => {
   };
 
   const editUserHandler = () => {
-    editCurrentUser({
-      firstName,
-      lastName,
-      email: emailValue,
-      password: currentUser.password,
-    });
+    editCurrentUser(firstName, lastName, emailValue);
 
     resetValues();
   };

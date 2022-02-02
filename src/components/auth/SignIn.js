@@ -4,7 +4,7 @@ import CustomButton from "../UI/CustomButton";
 import { AuthContext } from "../../context/AuthContext";
 
 const SignIn = (props) => {
-  const { login, currentUser } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
