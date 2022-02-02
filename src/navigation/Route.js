@@ -26,7 +26,7 @@ const Route = (props) => {
   if (loading) {
     return (
       <View style={styles.screen}>
-        <ActivityIndicator size="large" color="#00ff00" />
+        <ActivityIndicator size="large" color="#fff" />
       </View>
     );
   }
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ccc",
+    backgroundColor: "#166974",
   },
 });
 

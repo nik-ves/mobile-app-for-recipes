@@ -32,7 +32,7 @@ const Meals = (props) => {
   }
 
   if (displayData.length < 1 && !searchParam) {
-    userMessage = <ActivityIndicator size="large" color="#00ff00" />;
+    userMessage = <ActivityIndicator size="large" color="#fff" />;
   }
 
   useEffect(() => {

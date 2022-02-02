@@ -44,7 +44,7 @@ const MealDetails = ({ route }) => {
           <Text style={styles.title}>Ingredients</Text>
 
           {!renderIngredients && (
-            <ActivityIndicator size="large" color="#00ff00" />
+            <ActivityIndicator size="large" color="#fff" />
           )}
           {renderIngredients}
         </View>
