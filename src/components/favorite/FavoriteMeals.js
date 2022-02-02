@@ -21,6 +21,7 @@ const FavoriteMeals = (props) => {
       <FlatList
         style={styles.list}
         keyExtractor={(item) => item.recipe_id}
+        // keyExtractor={(item, index) => "key" + index}
         data={favMeals}
         renderItem={({ item }) => {
           return (

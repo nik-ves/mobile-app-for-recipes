@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { MealsContext } from "../../context/MealsContext";
 import { useContext, useEffect, useState } from "react";
+import { uid } from "uid";
 
 const MealDetails = ({ route }) => {
   const { meals } = useContext(MealsContext);
@@ -27,7 +28,7 @@ const MealDetails = ({ route }) => {
   }, []);
 
   const renderIngredients = currentMeal.ingredients?.map((ingredient) => (
-    <View key={ingredient} style={styles.ingredientBox}>
+    <View key={uid(15)} style={styles.ingredientBox}>
       <Text style={styles.ingredientText}>{ingredient}</Text>
     </View>
   ));
@@ -63,9 +64,10 @@ const styles = StyleSheet.create({
   },
   title: {
     color: "white",
-    fontSize: 20,
+    fontSize: 24,
     textAlign: "center",
     fontFamily: "poppins-bold",
+    marginTop: 10,
   },
   publisher: {
     color: "white",

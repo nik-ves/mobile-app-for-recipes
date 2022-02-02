@@ -4,14 +4,23 @@ import CustomButton from "../UI/CustomButton";
 import { AuthContext } from "../../context/AuthContext";
 
 const SignIn = (props) => {
-  const { login } = useContext(AuthContext);
+  const { login, currentUser } = useContext(AuthContext);
 
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const loginHandler = () => {
     login(emailValue, passwordValue);
+
+    setErrorMessage("Wrong credentials!");
   };
+
+  if (errorMessage) {
+    setTimeout(() => {
+      setErrorMessage(null);
+    }, 5000);
+  }
 
   return (
     <View style={styles.center}>
@@ -39,6 +48,8 @@ const SignIn = (props) => {
           defaultValue={passwordValue}
         />
       </View>
+
+      {errorMessage && <Text style={styles.errorMessage}>{errorMessage}</Text>}
 
       <CustomButton onPress={loginHandler}>Sign In</CustomButton>
 
@@ -88,6 +99,14 @@ const styles = StyleSheet.create({
   createAccount: {
     fontSize: 15,
     color: "#fff",
+  },
+  errorMessage: {
+    color: "white",
+    borderWidth: 1,
+    borderColor: "red",
+    fontSize: 20,
+    padding: 5,
+    marginTop: 15,
   },
 });
 

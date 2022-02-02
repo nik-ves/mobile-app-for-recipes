@@ -40,6 +40,7 @@ const MealsContextProvider = (props) => {
     if (mealExists > -1) {
       const updatedArray = [...favMeals];
       updatedArray.splice(mealExists, 1);
+
       setFavMeals(updatedArray);
     } else {
       const meal = meals.find((meal) => meal.recipe_id === mealId);

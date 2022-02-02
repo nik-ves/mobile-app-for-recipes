@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import {
-  ScrollView,
   Text,
   View,
   StyleSheet,
   FlatList,
   TextInput,
+  ActivityIndicator,
 } from "react-native";
 
 import { MealsContext } from "../../context/MealsContext";
@@ -21,7 +21,7 @@ const Meals = (props) => {
 
   let userMessage;
 
-  if (displayData.length < 1) {
+  if (displayData.length < 1 && searchParam) {
     userMessage = (
       <View style={styles.userMessageConatiner}>
         <Text style={styles.userMessage}>
@@ -31,11 +31,13 @@ const Meals = (props) => {
     );
   }
 
+  if (displayData.length < 1 && !searchParam) {
+    userMessage = <ActivityIndicator size="large" color="#00ff00" />;
+  }
+
   useEffect(() => {
     fetchMeals();
   }, []);
-
-  console.log(meals.length);
 
   return (
     <View style={styles.screen}>
@@ -54,6 +56,7 @@ const Meals = (props) => {
       <FlatList
         style={styles.list}
         keyExtractor={(item) => item.recipe_id}
+        // keyExtractor={(item, index) => 'key'+index}
         data={displayData}
         renderItem={({ item }) => {
           return (

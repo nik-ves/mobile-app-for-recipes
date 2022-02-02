@@ -43,6 +43,13 @@ const SignUp = (props) => {
     setSuccessMessage("Account created successfully!");
   };
 
+  if (errorMessage || successMessage) {
+    setTimeout(() => {
+      setErrorMessage(null);
+      setSuccessMessage(null);
+    }, 5000);
+  }
+
   return (
     <View style={styles.center}>
       <Text style={styles.title}>Pizza & Pasta</Text>
@@ -145,15 +152,15 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   successMessage: {
-    color: "green",
+    color: "white",
     borderWidth: 1,
-    borderColor: "green",
+    borderColor: "#0b343a",
     fontSize: 20,
     padding: 5,
     marginTop: 15,
   },
   errorMessage: {
-    color: "red",
+    color: "white",
     borderWidth: 1,
     borderColor: "red",
     fontSize: 20,
